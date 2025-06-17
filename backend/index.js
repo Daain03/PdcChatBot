@@ -1,28 +1,41 @@
-// index.js
+// backend/index.js
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const { handleChat } = require("./utils/llm");
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middlewares
+// ✅ Allow both local and deployed frontend for CORS
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://pdcchatbot-1.onrender.com", // <-- Your deployed frontend URL
+];
+
 app.use(
   cors({
-    origin: "http://localhost:5173", // Frontend URL for local testing
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
+
 app.use(express.json());
 
-// Health check route
+// ✅ Health check route
 app.get("/", (req, res) => {
   res.send("Iqra RAG Chatbot backend is running");
 });
 
-// Main chat endpoint
+// ✅ Main chat route
 app.post("/api/chat", async (req, res) => {
   const { prompt } = req.body;
 
@@ -39,7 +52,9 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-// Start server
+// ✅ Start the server (for local dev only)
 app.listen(PORT, () => {
   console.log(`✅ Backend running on http://localhost:${PORT}`);
 });
+
+module.exports = app; // Needed for Vercel or serverless use
