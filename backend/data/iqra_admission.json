@@ -1,0 +1,29 @@
+{
+  "undergraduate": {
+    "business": {
+      "4_year": {
+        "requirements": "At least 45% marks in Higher Secondary School Certificate or equivalent",
+        "programs": ["BBA-H", "BS (Islamic Banking & Finance)", "BS (Accounting & Finance)", "BS (Economics & Finance)"],
+        "diploma_option": "At least 60% marks in Diploma for admission"
+      }
+    },
+    "engineering": {
+      "4_year": {
+        "requirements": "At least 50% marks in HSC Pre-Engineering or equivalent",
+        "programs": ["BS (Computer Science)", "BS (Software Engineering)", "BS (Artificial Intelligence)", "BS (Telecommunication)"]
+      }
+    }
+  },
+  "graduate": {
+    "masters": {
+      "requirements": "2nd division degree or 2.5 CGPA with 16-years schooling",
+      "credit_hours": {
+        "business": "36 credit hours for 1.5 year MBA",
+        "non_business": "72 credit hours"
+      }
+    },
+    "phd": {
+      "requirements": "MS/MPhil with 3.0 CGPA and NTS GAT (Subject) 60% marks"
+    }
+  }
+}

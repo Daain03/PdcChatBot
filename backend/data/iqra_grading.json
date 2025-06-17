@@ -1,0 +1,14 @@
+{
+  "grading_scale": {
+    "A": "4.0 (90-100%)",
+    "B": "3.0 (80-89%)",
+    "C": "2.0 (70-79%)",
+    "D": "1.0 (60-69%)",
+    "F": "0.0 (Below 60%)"
+  },
+  "cgpa_requirements": {
+    "bachelors": "Minimum 2.0 CGPA to graduate",
+    "masters": "Minimum 2.5 CGPA to graduate",
+    "phd": "Minimum 3.0 CGPA for admission and graduation"
+  }
+}
